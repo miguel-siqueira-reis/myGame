@@ -1,14 +1,14 @@
 export const utils = {
   widthGrid(n) {
-    return n * 16;
+    return n * 32;
   },
   asGridCoord(x, y) {
-    return `${x * 16},${y * 16}`;
+    return `${x * 32},${y * 32}`;
   },
   maxPosition(initialX, initialY, direction) {
     let x = initialX;
     let y = initialY;
-    const size = 16;
+    const size = 32;
 
     if (direction === "left") {
       x -= size;
@@ -22,9 +22,9 @@ export const utils = {
     return {x, y};
   },
   calculateCameraX(cameraPerson) {
-    return this.widthGrid(10.5) - cameraPerson.x;
+    return this.widthGrid(5.25) - cameraPerson.x;
   },
-  cxalculateCameraY(cameraPerson) {
-    return this.widthGrid(6) - cameraPerson.y;
+  calculateCameraY(cameraPerson) {
+    return this.widthGrid(3) - cameraPerson.y;
   }
 }

@@ -14,12 +14,12 @@ export default class Overwolrd {
   }
 
   init() {
-    this.map = new OverwolrdMap(window.OverWorldMapas.nature);
+    this.map = new OverwolrdMap(window.OverWorldMapas.teste);
 
     this.moveInput = new MoveInput();
     this.moveInput.init();
 
-    this.startGameLoop(70);
+    this.startGameLoop(60);
 
   }
 

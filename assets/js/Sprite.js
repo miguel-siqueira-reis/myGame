@@ -64,7 +64,7 @@ export default class Sprite {
 
   draw(ctx, cameraPearson) {
     let x = this.gameObject.x - 8 + utils.calculateCameraX(cameraPearson);
-    let y = this.gameObject.y - 18 + utils.cxalculateCameraY(cameraPearson);
+    let y = this.gameObject.y - 18 + utils.calculateCameraY(cameraPearson);
 
     this.shadowLoad && ctx.drawImage(this.shadow, x, y);
 
