@@ -92,6 +92,7 @@ window.OverWorldMapas = {
       [utils.asGridCoord(7, 10)]: true,
       [utils.asGridCoord(8, 10)]: true,
       [utils.asGridCoord(9, 10)]: true,
+      [utils.asGridCoord(10, 10)]: true,
 
 
       // [utils.asGridCoord(12.5, 6)]: true,
