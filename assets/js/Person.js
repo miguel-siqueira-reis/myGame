@@ -5,8 +5,6 @@ export class Person extends GameObject {
       super(config);
       this.movingProgressRemaining = 0;
 
-      this.speed = 1;
-
       this.player = config.player || false;
 
       this.directionsUpdate = {

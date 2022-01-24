@@ -11,7 +11,7 @@ export class MoveInput {
       "ArrowUp": "up",
       "ArrowDown": "down",
       "ArrowRight": "right",
-      "ArraowLeft": "left",
+      "ArrowLeft": "left",
     }
   }
 
