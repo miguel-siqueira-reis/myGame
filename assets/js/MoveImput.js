@@ -2,7 +2,7 @@ export class MoveInput {
   constructor() {
     this.heldDirections = [];
 
-    this.map = {
+    this.mapKeys = {
       "KeyW": "up",
       "KeyS": "down",
       "KeyA": "left",
@@ -17,13 +17,13 @@ export class MoveInput {
 
   init() {
     document.addEventListener("keydown", e => {
-      const dir = this.map[e.code];
+      const dir = this.mapKeys[e.code];
       if (dir && this.heldDirections.indexOf(dir) === -1) {
         this.heldDirections.unshift(dir);
       }
     })
     document.addEventListener("keyup", e => {
-      const dir = this.map[e.code];
+      const dir = this.mapKeys[e.code];
       const index = this.heldDirections.indexOf(dir);
       if (index > -1) {
         this.heldDirections.splice(index, 1);

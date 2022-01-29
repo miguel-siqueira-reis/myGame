@@ -5,7 +5,7 @@ export const utils = {
   asGridCoord(x, y) {
     return `${x * 32},${y * 32}`;
   },
-  maxPosition(initialX, initialY, direction) {
+  nextPosition(initialX, initialY, direction) {
     let x = initialX;
     let y = initialY;
     const size = 32;
@@ -26,5 +26,19 @@ export const utils = {
   },
   calculateCameraY(cameraPerson) {
     return this.widthGrid(3) - cameraPerson.y;
+  },
+  emitEvent(name, detail) {
+    const event = new CustomEvent(name, {
+      detail
+    });
+
+    document.dispatchEvent(event);
+  },
+
+  oopositionDirection(direction) {
+    if (direction === "left") return "right";
+    if (direction === "right") return "left";
+    if (direction === "up") return "down";
+    return "up";
   }
 }

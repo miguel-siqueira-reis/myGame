@@ -1,5 +1,6 @@
 import OverwolrdMap from "./OverwolrdMap.js";
 import {MoveInput} from "./MoveImput.js";
+import KeyPressLissener from "./KeyPressLissener.js";
 
 export default class Overwolrd {
   constructor(config) {
@@ -15,12 +16,34 @@ export default class Overwolrd {
 
   init() {
     this.map = new OverwolrdMap(window.OverWorldMapas.teste);
+    this.map.mountObj();
+
+    this.bindActionInput();
+    this.bindHeroPositionCheck();
 
     this.moveInput = new MoveInput();
     this.moveInput.init();
 
-    this.startGameLoop(60);
+    this.startGameLoop(70);
 
+    // this.map.startCutscene([
+    //   { type: "textMessage", text: "hello, world!!" }
+    // ])
+
+  }
+
+  bindActionInput() {
+    new KeyPressLissener("Enter", () => {
+      this.map.checkForActionsCutscene();
+    });
+  }
+
+  bindHeroPositionCheck() {
+    document.addEventListener("PersonWalkingComplete", e => {
+      if (e.detail.whoId === "hero") {
+        this.map.checkForFootstepCutscene();
+      }
+    })
   }
 
   startGameLoop(fps) {
@@ -37,19 +60,16 @@ export default class Overwolrd {
       const now = Date.now();
       const elapsed = now - then;
 
-      // if enough time has elapsed, draw the next frame
-
       if (elapsed > fpsInterval) {
-
-        // Get ready for next frame by setting then=now, but also adjust for your
-        // specified fpsInterval not being a multiple of RAF's interval (16.7ms)
         then = now - (elapsed % fpsInterval);
 
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
         const cameraPerson = this.map.gameObjects.hero;
 
-        Object.values(this.map.gameObjects).forEach(object => {
+        Object.values(this.map.gameObjects).sort((a,b) => {
+          return a.y - b.y;
+        }).forEach(object => {
           object.update({
             arrow: this.moveInput.direction,
             map: this.map
@@ -67,6 +87,4 @@ export default class Overwolrd {
     }
     step();
   }
-
-
 }
