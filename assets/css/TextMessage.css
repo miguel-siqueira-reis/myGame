@@ -3,17 +3,18 @@
   left: 0;
   right: 0;
   bottom: 0;
-  height: 36px;
-  padding: 4px;
-  margin: 5px;
+  height: 66px;
+  padding: 10px;
+  margin: 10px;
   background-color: var(--menu-background);
   border: 1px solid var(--menu-border-color);
   color: var(--menu-font-color);
 }
 
 .text_message__p {
+  font-family: sans-serif;
   margin: 0;
-  font-size: 8px;
+  font-size: 14px;
 
 }
 
@@ -24,8 +25,9 @@
   appearance: none;
   background: none;
   border: 0;
-  font-family: inherit;
   cursor: pointer;
+  font-family: sans-serif;
+
 
   position: absolute;
   right: 6px;

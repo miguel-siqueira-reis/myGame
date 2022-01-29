@@ -22,10 +22,10 @@ export const utils = {
     return {x, y};
   },
   calculateCameraX(cameraPerson) {
-    return this.widthGrid(5.25) - cameraPerson.x;
+    return this.widthGrid(10.5) - cameraPerson.x;
   },
   calculateCameraY(cameraPerson) {
-    return this.widthGrid(3) - cameraPerson.y;
+    return this.widthGrid(6) - cameraPerson.y;
   },
   emitEvent(name, detail) {
     const event = new CustomEvent(name, {

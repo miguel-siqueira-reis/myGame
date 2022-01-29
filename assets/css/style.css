@@ -17,8 +17,8 @@ body {
 .game {
   outline: 1px solid #fff;
   position: relative;
-  width: 352px;
-  height: 198px;
+  width: 704px;
+  height: 396px;
   transform: scale(2);
 }
 
